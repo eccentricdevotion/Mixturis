@@ -66,7 +66,7 @@ All shapeless recipes should be entered in the `shapeless:` configuraion section
 
 * `Slime:` is the name of the recipe and the resulting crafted item (if `displayname` is set to `true`)
 * `recipe` is a simple comma separated list of item IDs (and optional data values)
-* `result`, `amount`, `displayname`, and `lore` are the same as for __Shaped recipes__ above
+* `result`, `amount`, `displayname`, and `lore` are the same as for [Shaped recipes](#shaped-recipes) above
 
 The shapeless recipe example above will craft a slimeball without a custom name and lore. The recipe is three VINE in any crafting slot.
 
@@ -89,7 +89,7 @@ All furnace recipes should be entered in the `furnace:` configuraion section.
 
 * `Nuclear Wool:` is the name of the recipe and the resulting smelted item (if `displayname` is set to `true`)
 * `recipe` is a the item ID (and optional data value) of the block to be smelted
-* `result`, `displayname`, and `lore` are the same as for __Shaped recipes__ above
+* `result`, `displayname`, and `lore` are the same as for [Shaped recipes](#shaped-recipes) above
 
 The furnace recipe example above will smelt WHITE WOOL into BLACK WOOL  with the name "Nuclear Wool" and lore "Done to a crisp".
 

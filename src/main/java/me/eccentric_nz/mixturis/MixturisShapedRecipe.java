@@ -6,6 +6,8 @@ package me.eccentric_nz.mixturis;
 import java.util.Arrays;
 import java.util.Set;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -41,6 +43,8 @@ public class MixturisShapedRecipe {
          amount: 1
          displayname: true
          lore: "The vorpal blade\ngoes snicker-snack!"
+         enchantment: FIRE_ASPECT
+         strength: 3
          */
         String[] result_iddata = plugin.getRecipesConfig().getString("shaped." + s + ".result").split(":");
         int result_id = Integer.parseInt(result_iddata[0]);
@@ -53,12 +57,22 @@ public class MixturisShapedRecipe {
         } else {
             is = new ItemStack(mat, amount);
         }
+        ItemMeta im = is.getItemMeta();
+        boolean set_meta = false;
         if (plugin.getRecipesConfig().getBoolean("shaped." + s + ".displayname")) {
-            ItemMeta im = is.getItemMeta();
             im.setDisplayName(s);
             if (!plugin.getRecipesConfig().getString("shaped." + s + ".lore").equals("")) {
                 im.setLore(Arrays.asList(plugin.getRecipesConfig().getString("shaped." + s + ".lore").split("\n")));
             }
+            set_meta = true;
+        }
+        if (!plugin.getRecipesConfig().getString("shaped." + s + ".enchantment").equals("NONE")) {
+            Enchantment e = EnchantmentWrapper.getByName(plugin.getRecipesConfig().getString("shaped." + s + ".enchantment"));
+            boolean did = im.addEnchant(e, plugin.getRecipesConfig().getInt("shaped." + s + ".strength"), true);
+            System.out.println((did) ? "true" : "false");
+            set_meta = true;
+        }
+        if (set_meta) {
             is.setItemMeta(im);
         }
         ShapedRecipe r = new ShapedRecipe(is);

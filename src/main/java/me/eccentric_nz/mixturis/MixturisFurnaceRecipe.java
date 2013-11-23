@@ -6,6 +6,8 @@ package me.eccentric_nz.mixturis;
 import java.util.Arrays;
 import java.util.Set;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -47,12 +49,21 @@ public class MixturisFurnaceRecipe {
         } else {
             is = new ItemStack(result_m, 1);
         }
+        ItemMeta im = is.getItemMeta();
+        boolean set_meta = false;
         if (plugin.getRecipesConfig().getBoolean("furnace." + s + ".displayname")) {
-            ItemMeta im = is.getItemMeta();
             im.setDisplayName(s);
             if (!plugin.getRecipesConfig().getString("furnace." + s + ".lore").equals("")) {
                 im.setLore(Arrays.asList(plugin.getRecipesConfig().getString("furnace." + s + ".lore").split("\n")));
             }
+            set_meta = true;
+        }
+        if (!plugin.getRecipesConfig().getString("furnace." + s + ".enchantment").equals("NONE")) {
+            Enchantment e = EnchantmentWrapper.getByName(plugin.getRecipesConfig().getString("furnace." + s + ".enchantment"));
+            im.addEnchant(e, plugin.getRecipesConfig().getInt("furnace." + s + ".strength"), true);
+            set_meta = true;
+        }
+        if (set_meta) {
             is.setItemMeta(im);
         }
         String[] ingredient = plugin.getRecipesConfig().getString("furnace." + s + ".recipe").split(":");

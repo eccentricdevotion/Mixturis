@@ -26,6 +26,8 @@ shaped:
         amount: 1
         displayname: true
         lore: "The vorpal blade\ngoes snicker-snack!"
+        enchantment: FIRE_ASPECT
+        strength: 3
 ```
 
 All shaped recipes should be entered in the `shaped:` configuraion section.
@@ -42,8 +44,10 @@ All shaped recipes should be entered in the `shaped:` configuraion section.
 * `lore` if the item should display custom lore, you can add it here (it will only be added if `displayname` is set to `true`)
    * to add multiple lines of lore, separate them with `/n`
    * Use an empty string `""` to have a display name but no lore
+* `enchantment` is the enchantment the crafted item should be given - set to `NONE` for no enchantment
+* `strength` is the level the enchantment should be
 
-The shaped recipe example above will craft a diamond sword called "Vorpal Sword" with the lore (on two lines) "The vorpal blade goes snicker-snack!". The recipe is shown in the crafting grid.
+The shaped recipe example above will craft a diamond sword called "Vorpal Sword" with the lore (on two lines) "The vorpal blade goes snicker-snack!" and a level 3 Fire Aspect enchantment. The recipe is shown in the crafting grid.
 
 ![screen shot](https://github.com/eccentricdevotion/Mixturis/blob/master/src/images/vorpalsword.jpg?raw=true "Vorpal Sword")
 
@@ -59,6 +63,8 @@ shapeless:
         amount: 1
         displayname: false
         lore: ""
+        enchantment: NONE
+        strength: 0
 ```
 
 All shapeless recipes should be entered in the `shapeless:` configuraion section.
@@ -66,7 +72,7 @@ All shapeless recipes should be entered in the `shapeless:` configuraion section
 
 * `Slime:` is the name of the recipe and the resulting crafted item (if `displayname` is set to `true`)
 * `recipe` is a simple comma separated list of item IDs (and optional data values)
-* `result`, `amount`, `displayname`, and `lore` are the same as for [Shaped recipes](#shaped-recipes) above
+* `result`, `amount`, `displayname`, `lore`, `enchantment`, and `strength` are the same as for [Shaped recipes](#shaped-recipes) above
 
 The shapeless recipe example above will craft a slimeball without a custom name and lore. The recipe is three VINE in any crafting slot.
 
@@ -83,13 +89,15 @@ furnace:
         result: '35:15'
         displayname: true
         lore: "Done to a crisp"
+        enchantment: NONE
+        strength: 0
 ```
 
 All furnace recipes should be entered in the `furnace:` configuraion section.
 
 * `Nuclear Wool:` is the name of the recipe and the resulting smelted item (if `displayname` is set to `true`)
 * `recipe` is a the item ID (and optional data value) of the block to be smelted
-* `result`, `displayname`, and `lore` are the same as for [Shaped recipes](#shaped-recipes) above
+* `result`, `displayname`, `lore`, `enchantment`, and `strength` are the same as for [Shaped recipes](#shaped-recipes) above
 
 The furnace recipe example above will smelt WHITE WOOL into BLACK WOOL  with the name "Nuclear Wool" and lore "Done to a crisp".
 

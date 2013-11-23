@@ -6,6 +6,8 @@ package me.eccentric_nz.mixturis;
 import java.util.Arrays;
 import java.util.Set;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -49,12 +51,21 @@ public class MixturisShapelessRecipe {
         } else {
             is = new ItemStack(mat, amount);
         }
+        ItemMeta im = is.getItemMeta();
+        boolean set_meta = false;
         if (plugin.getRecipesConfig().getBoolean("shapeless." + s + ".displayname")) {
-            ItemMeta im = is.getItemMeta();
             im.setDisplayName(s);
             if (!plugin.getRecipesConfig().getString("shapeless." + s + ".lore").equals("")) {
                 im.setLore(Arrays.asList(plugin.getRecipesConfig().getString("shapeless." + s + ".lore").split("\n")));
             }
+            set_meta = true;
+        }
+        if (!plugin.getRecipesConfig().getString("shapeless." + s + ".enchantment").equals("NONE")) {
+            Enchantment e = EnchantmentWrapper.getByName(plugin.getRecipesConfig().getString("shapeless." + s + ".enchantment"));
+            im.addEnchant(e, plugin.getRecipesConfig().getInt("shapeless." + s + ".strength"), true);
+            set_meta = true;
+        }
+        if (set_meta) {
             is.setItemMeta(im);
         }
         ShapelessRecipe r = new ShapelessRecipe(is);

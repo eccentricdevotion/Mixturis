@@ -62,7 +62,7 @@ public class MixturisShapelessRecipe {
         }
         if (!plugin.getRecipesConfig().getString("shapeless." + s + ".enchantment").equals("NONE")) {
             Enchantment e = EnchantmentWrapper.getByName(plugin.getRecipesConfig().getString("shapeless." + s + ".enchantment"));
-            im.addEnchant(e, plugin.getRecipesConfig().getInt("shapeless." + s + ".strength"), true);
+            im.addEnchant(e, plugin.getRecipesConfig().getInt("shapeless." + s + ".strength"), plugin.getConfig().getBoolean("allow_unsafe_enchantments"));
             set_meta = true;
         }
         if (set_meta) {

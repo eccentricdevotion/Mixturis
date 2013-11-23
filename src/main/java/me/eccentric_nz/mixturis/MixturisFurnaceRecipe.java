@@ -60,7 +60,7 @@ public class MixturisFurnaceRecipe {
         }
         if (!plugin.getRecipesConfig().getString("furnace." + s + ".enchantment").equals("NONE")) {
             Enchantment e = EnchantmentWrapper.getByName(plugin.getRecipesConfig().getString("furnace." + s + ".enchantment"));
-            im.addEnchant(e, plugin.getRecipesConfig().getInt("furnace." + s + ".strength"), true);
+            im.addEnchant(e, plugin.getRecipesConfig().getInt("furnace." + s + ".strength"), plugin.getConfig().getBoolean("allow_unsafe_enchantments"));
             set_meta = true;
         }
         if (set_meta) {

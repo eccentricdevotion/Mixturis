@@ -68,7 +68,7 @@ public class MixturisShapedRecipe {
         }
         if (!plugin.getRecipesConfig().getString("shaped." + s + ".enchantment").equals("NONE")) {
             Enchantment e = EnchantmentWrapper.getByName(plugin.getRecipesConfig().getString("shaped." + s + ".enchantment"));
-            boolean did = im.addEnchant(e, plugin.getRecipesConfig().getInt("shaped." + s + ".strength"), true);
+            boolean did = im.addEnchant(e, plugin.getRecipesConfig().getInt("shaped." + s + ".strength"), plugin.getConfig().getBoolean("allow_unsafe_enchantments"));
             System.out.println((did) ? "true" : "false");
             set_meta = true;
         }

@@ -22,7 +22,7 @@ shapeless:
         enchantment: NONE
         strength: 0
 furnace:
-    Nuclear wool:
+    Nuclear Wool:
         recipe: '35:0'
         result: '35:15'
         displayname: true

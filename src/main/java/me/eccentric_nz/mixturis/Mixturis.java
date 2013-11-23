@@ -7,7 +7,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Mixturis extends JavaPlugin {
 
-    public FileConfiguration recipesConfig;
+    private FileConfiguration recipesConfig;
+    private MixturisUtilities u;
 
     @Override
     public void onDisable() {
@@ -16,6 +17,7 @@ public class Mixturis extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        u = new MixturisUtilities(this);
         saveDefaultConfig();
         loadRecipeConfig();
         new MixturisShapedRecipe(this).addShapedRecipes();
@@ -24,8 +26,12 @@ public class Mixturis extends JavaPlugin {
     }
 
     private void loadRecipeConfig() {
-        new MixturisUtilities().copy(getDataFolder() + File.separator + "recipes.yml", getResource("recipes.yml"));
+        u.copy(getDataFolder() + File.separator + "recipes.yml", getResource("recipes.yml"));
         this.recipesConfig = YamlConfiguration.loadConfiguration(new File(getDataFolder(), "recipes.yml"));
+    }
+
+    public MixturisUtilities getU() {
+        return u;
     }
 
     public FileConfiguration getRecipesConfig() {

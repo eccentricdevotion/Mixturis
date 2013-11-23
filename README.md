@@ -32,11 +32,11 @@ All shaped recipes should be entered in the `shaped:` configuraion section.
 
 * `Vorpal Sword:` is the name of the recipe and the resulting crafted item (if `displayname` is set to `true`)
 * `shape` is how the items are placed in the crafting grid. The order is by rows (top to bottom) - the commas separate the rows. If the crafting slot should be empty type a dash (`-`), otherwise enter an uppercase letter for each __different item type__
-* the `ingredients` section defines the item IDs and data that are represented in the `shape` key.
-   * The letters in this section should correspond to the placeholders that were entered into `shape`.
-   * the values should be the id (and optional data values) of the item that is to be used
+* the `ingredients` section defines the item IDs and data that are represented in the `shape` key
+   * The letters in this section should correspond to the placeholders that were entered into `shape`
+   * the values should be the ID (and optional data values) of the item that is to be used
    * if data values are included, the values should be separated with a colon (`:`) and must be wrapped in single quotes - `'ID:data'` for example: `'5:2'`
-* `result` is the id (and optional data value) of the item that will get crafted
+* `result` is the ID (and optional data value) of the item that will get crafted
 * `amount` is how many of the crafted item the player will get from this recipe
 * `displayname` determines whether to add a custom display name for the crafted item - if `true` then the recipe name is used
 * `lore` if the item should display custom lore, you can add it here (it will only be added if `displayname` is set to `true`)

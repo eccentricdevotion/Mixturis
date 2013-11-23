@@ -31,7 +31,7 @@ shaped:
 All shaped recipes should be entered in the `shaped:` configuraion section.
 
 * `Vorpal Sword:` is the name of the recipe and the resulting crafted item (if `displayname` is set to `true`)
-* `shape` is how the items are placed in the crafting grid. The order is by rows (top to bottom) - the commas separate the rows. If the crafting slot should be empty type a dash (`-`), otherwise enter an uppercase letter for each different __item type__
+* `shape` is how the items are placed in the crafting grid. The order is by rows (top to bottom) - the commas separate the rows. If the crafting slot should be empty type a dash (`-`), otherwise enter an uppercase letter for each __different item type__
 * the `ingredients` section defines the item IDs and data that are represented in the `shape` key.
    * The letters in this section should correspond to the placeholders that were entered into `shape`.
    * the values should be the id (and optional data values) of the item that is to be used

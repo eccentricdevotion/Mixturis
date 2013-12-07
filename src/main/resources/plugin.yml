@@ -1,8 +1,12 @@
 author: eccentric_nz
 database: false
 description: Custom recipes for Bukkit
-generator: http://dinnerbone.com/minecraft/tools/pluginator/
 main: me.eccentric_nz.mixturis.Mixturis
 name: Mixturis
 startup: postworld
 version: '1.0'
+commands:
+    mixturis:
+        aliases: [mix]
+        usage: /<command> [recipe]
+        description: Allows players to view custom recipes in a workbench

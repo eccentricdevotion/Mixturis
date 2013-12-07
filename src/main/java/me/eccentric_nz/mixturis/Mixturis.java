@@ -1,6 +1,8 @@
 package me.eccentric_nz.mixturis;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,6 +11,7 @@ public class Mixturis extends JavaPlugin {
 
     private FileConfiguration recipesConfig;
     private MixturisUtilities u;
+    private final List<String> recipeViewers = new ArrayList<String>();
 
     @Override
     public void onDisable() {
@@ -36,5 +39,9 @@ public class Mixturis extends JavaPlugin {
 
     public FileConfiguration getRecipesConfig() {
         return recipesConfig;
+    }
+
+    public List<String> getRecipeViewers() {
+        return recipeViewers;
     }
 }

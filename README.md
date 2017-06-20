@@ -5,11 +5,11 @@ A simple custom recipe plugin for Bukkit servers
 
 Mixturis is Latin for 'Recipes'
 
-##Configuring recipes
+## Configuring recipes
 
 To add new custom recipes, you need to edit _recipes.yml_
 
-###Shaped recipes
+### Shaped recipes
 
 Example:
 
@@ -51,7 +51,7 @@ The shaped recipe example above will craft a diamond sword called "Vorpal Sword"
 
 ![screen shot](https://github.com/eccentricdevotion/Mixturis/blob/master/src/images/vorpalsword.jpg?raw=true "Vorpal Sword")
 
-###Shapeless recipes
+### Shapeless recipes
 
 Example:
 
@@ -78,7 +78,7 @@ The shapeless recipe example above will craft a slimeball without a custom name 
 
 ![screen shot](https://github.com/eccentricdevotion/Mixturis/blob/master/src/images/slime.jpg?raw=true "Slimeball")
 
-###Furnace recipes
+### Furnace recipes
 
 Example:
 
